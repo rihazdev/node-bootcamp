@@ -15,10 +15,14 @@ const bootcamps = require('./routes/bootcamps');
 const app = express(); 
 const PORT = process.env.PORT || 5000;
 
+// Body parser
+app.use(express.json());
+
 // MongoDb connection
 connectDB();
-
-app.use(morgan('dev'));
+if(process.env.NODE_ENV  === 'development'){
+    app.use(morgan('dev'));
+}
  
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
