@@ -31,7 +31,6 @@ exports.createBootcamp = asyncHandler(async (req, res, next) => {
         success: true, 
         data: newBootcamp
     });
-    res.status(400).json({success: false});
     
 });
 
