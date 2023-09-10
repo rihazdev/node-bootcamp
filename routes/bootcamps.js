@@ -1,4 +1,5 @@
 const express = require('express');
+const coursesRouter = require('./courses');
 const {
     getBootcamps,
     getBootcamp,
@@ -9,6 +10,9 @@ const {
 } = require('../controllers/bootcamps.js');
 
 const router = express.Router();
+
+// Reroute into other resource routers
+router.use('/:bootcampId/courses', coursesRouter);
 router.route('/')
     .get(getBootcamps)
     .post(createBootcamp);

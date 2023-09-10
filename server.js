@@ -9,6 +9,7 @@ dotenv.config({path: './config/config.env'});
 
 // Route files 
 const bootcamps = require('./routes/bootcamps');
+const courses = require('./routes/courses');
 
 // dev logging to console
 // const logger = require('./middleware/logger');
@@ -27,6 +28,7 @@ if(process.env.NODE_ENV  === 'development'){
  
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
+app.use('/api/v1/courses', courses);
 
 app.use(errorHandler);
 

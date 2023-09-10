@@ -90,7 +90,7 @@ const BootcampSchema = new mongoose.Schema({
 BootcampSchema.pre('save', function(next){
     this.slug = slugify(this.name, {lower: true});
     next();
-})
+});
 
 //Geocode & create location field
 BootcampSchema.pre('validate', async function(next) {
